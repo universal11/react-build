@@ -1,6 +1,6 @@
 # react-build
 
-Utility for converting JSX files to JS files + minification + uglification
+_Utility for converting JSX files to JS files + minification + uglification_
 
 ####Show help options
 >react-build --help
