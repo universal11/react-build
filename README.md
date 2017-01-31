@@ -3,16 +3,7 @@
 _Utility for converting JSX files to JS files + minification + uglification_
 
 ####Show help options
->react-build --help
+>nodejs react-build.js --help
 
-####convert JSX to JS
->react-build --input source.jsx --output dist.min.js
-
-####convert JSX to JS with minification
->react-build --input source.jsx --output dist.min.js --minify
-
-####convert JSX to JS with uglification
->react-build --input source.jsx --output dist.min.js --uglify
-
-####convert JSX to JS with minification and uglification
->react-build --input source.jsx --output dist.min.js --minify --uglify
+####Example Usage
+>nodejs react-build.js --source source.jsx
