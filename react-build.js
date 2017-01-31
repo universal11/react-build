@@ -76,3 +76,6 @@ if(inputFilePath != null && outputFilePath != null){
 	}
 
 }
+else{
+	console.log("Please provide a source file using the --source option.");
+}
