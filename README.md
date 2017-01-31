@@ -10,4 +10,5 @@ _Utility for converting JSX files to JS files + minification + uglification_
 >nodejs react-build.js --help
 
 ####Example Usage
->nodejs react-build.js --source source.jsx  ##creates source.min.js within the target directory
+>nodejs react-build.js --source source.jsx  
+
