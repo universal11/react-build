@@ -18,8 +18,8 @@ function init(arguments){
 		switch(argument){
 			case "--source":
 				if(optionHasValue(i, argumentLength)){
-					inputFilePath = arguments[(i + 1)];
-					outputFilePath = inputFilePath.replace(Path.extname(inputFilePath), ".min.js");
+					inputFilePath = Path.normalize(arguments[(i + 1)]);
+					outputFilePath = Path.normalize(inputFilePath.replace(Path.extname(inputFilePath), ".min.js"));
 				}
 				break;
 			case "--mangle":
