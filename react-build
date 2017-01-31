@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+
+./node_modules/.bin/babel --presets react --plugins uglify:after tmp/helloworld.jsx
