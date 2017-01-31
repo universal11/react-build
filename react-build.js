@@ -43,37 +43,44 @@ function optionHasValue(optionIndex, numberOfArguments){
 init(process.argv);
 
 
-console.log("Source: " + inputFilePath);
+
 if(inputFilePath != null && outputFilePath != null){
+	console.log("Source: " + inputFilePath);
+	if(FileSystem.existsSync(path)) {
+		var contents = FileSystem.readFileSync(inputFilePath, 'utf8');
+		var output = null;
 
-	var contents = FileSystem.readFileSync(inputFilePath, 'utf8');
-	var output = null;
-
-	try{
-		output = Babel.transform(contents, {
-		 	presets: [ 
-		 		["react"],
-		 		["babili"]
-	  	 	]
-		});
-	}
-	catch(exception){
-		console.log("Failed to transform " + inputFilePath);
-		console.log("Exception: " + exception);
-	}
-
-	if(output != null){
-
-		if(doMangle){
-			output = UglifyJS.minify(output.code, {
-				fromString: true,
-				mangleProperties: true
+		try{
+			output = Babel.transform(contents, {
+			 	presets: [ 
+			 		["react"],
+			 		["babili"]
+		  	 	]
 			});
 		}
+		catch(exception){
+			console.log("Failed to transform " + inputFilePath);
+			console.log("Exception: " + exception);
+		}
 
-		FileSystem.writeFileSync(outputFilePath, output.code);
-		console.log("Created: " + outputFilePath);
+		if(output != null){
+
+			if(doMangle){
+				output = UglifyJS.minify(output.code, {
+					fromString: true,
+					mangleProperties: true
+				});
+			}
+
+			FileSystem.writeFileSync(outputFilePath, output.code);
+			console.log("Created: " + outputFilePath);
+		}
 	}
+	else{
+		console.log("Source file does not exist!");
+	}
+
+	
 
 }
 else{
