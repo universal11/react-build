@@ -11,6 +11,10 @@ var inputFilePath = null;
 var outputFilePath = null;
 var doMangle = false;
 
+function showLoadedOption(optionName){
+	console.log("Loaded Option: " + optionName);
+}
+
 function init(arguments){
 	for(var i=0; i < arguments.length; i++){
 		var argument = arguments[i];
@@ -24,7 +28,7 @@ function init(arguments){
 				break;
 			case "--mangle":
 				doMangle = true;
-				console.log("Loaded Option: Mangle");
+				showLoadedOption("Mangle");
 				break;
 			default:
 				break;
