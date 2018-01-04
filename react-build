@@ -60,7 +60,8 @@ if(inputFilePath != null && outputFilePath != null){
 			output = Babel.transform(contents, {
 			 	presets: [ 
 			 		["react"],
-			 		["babili"]
+			 		["babili"],
+			 		["es2015"]
 		  	 	]
 			});
 		}
