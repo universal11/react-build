@@ -1,6 +1,6 @@
 #!/usr/bin/env nodejs
 
-var Babel = require("babel-core");
+var Babel = require("@babel/core");
 var FileSystem = require('fs');
 var UglifyJS = require('uglify-js');
 var Path = require("path");
@@ -59,10 +59,14 @@ if(inputFilePath != null && outputFilePath != null){
 		try{
 			output = Babel.transform(contents, {
 			 	presets: [ 
-			 		["react"],
-			 		["babili"],
-			 		["es2015"]
-		  	 	]
+			 		["@babel/react"],
+			 		["minify"]
+                   ],
+                plugins: [
+                    ["@babel/proposal-object-rest-spread"], 
+                    ["@babel/transform-arrow-functions"],
+                    ["@babel/proposal-class-properties"]
+                ]
 			});
 		}
 		catch(exception){
